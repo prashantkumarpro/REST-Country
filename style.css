@@ -2,7 +2,7 @@
     --deep-dark-background: hsl(207, 26%, 17%);
     --dark-background: hsl(209, 23%, 22%);
     --light-backgrund: hsl(0, 0%, 98%);
-    --balck-color: #333;
+    --balck-color: #000000;
     --light-color: hsl(0, 0%, 100%)
 }
 
@@ -13,8 +13,6 @@
     font-family: "Nunito Sans", sans-serif;
     transition: 0.1ms all ease-in-out;
 }
-
-
 
 html,
 body {
@@ -28,22 +26,39 @@ body {
 
 }
 
-body.theme,
-body.theme .detail,
-body.theme .detail-container a {
+body.dark,
+body.dark .detail,
+body.dark .detail-container a {
     background-color: var(--deep-dark-background);
     color: var(--light-color);
 }
 
-body.theme .cards .card,
-body.theme header,
-body.theme .heading input,
-body.theme .heading .search_elem,
-body.theme .heading button,
-body.theme select {
+body.dark .cards .card,
+body.dark header,
+body.dark .heading input,
+body.dark .heading .search_elem,
+body.dark .heading button,
+body.dark select,
+body.dark #back,
+body.dark .boredr_country a {
     background-color: var(--dark-background);
     color: var(--light-color);
 }
+
+body.dark header,
+body.dark header a,
+body.dark header button {
+    color: var(--light-color);
+}
+
+body.dark #light-mode {
+    display: flex;
+}
+
+body.dark #dark-mode {
+    display: none;
+}
+
 
 header {
     position: fixed;
@@ -51,27 +66,32 @@ header {
     left: 0;
     z-index: 99;
     width: 100%;
-    height: 80px;
-    padding: 0 30px;
-    background-color: var(--light-backgrund);
+    height: 60px;
+    padding: 0 60px;
+    background-color: var(--light-color);
     color: var(--blcak-color);
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
 }
 
 body a {
     color: var(--balck-color);
+    text-decoration: none;
+
 }
+
 
 header a,
-button {
+header {
     color: var(--balck-color);
+
 }
 
-header.active,
-header.active a,
-header.active button {
-    color: var(--light-color);
+header a {
+    font-size: 20px;
+    font-weight: 800;
 }
+
+
 
 
 nav {
@@ -85,28 +105,23 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 5px;
+    gap: 7px;
     padding: 10px 20px;
     outline: none;
     border: none;
     background-color: transparent;
-    font-size: 17px;
+    font-size: 14px;
     cursor: pointer;
+    font-weight: 600;
 }
 
-#light-mode.active {
+#light-mode {
     display: none;
 }
-
-#dark-mode.active {
-    display: none;
-}
-
-
 
 #home {
     width: 100%;
-    padding: 5rem 0;
+    padding: 5rem 60px;
     margin-top: 2rem;
     color: var(--balck-color);
 
@@ -132,23 +147,24 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
-    padding: 0 30px;
+    margin-bottom: 40px;
     flex-wrap: wrap;
     gap: 20px;
 }
 
 .search_elem {
-    max-width: 390px;
+    max-width: 380px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
+    box-shadow: 0 2px 5px -2px rgba(0, 0, 0, .2)
 }
 
 #searc_input_btn {
     position: absolute;
+    font-weight: 400;
+    font-size: 16px;
 
 }
 
@@ -165,12 +181,13 @@ select {
     outline: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 14px;
+    box-shadow: 0 2px 5px -2px rgba(0, 0, 0, .2)
 }
 
-select option {
-    font-size: 20px;
-    margin-bottom: 10;
+option {
+    font-size: 14px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
@@ -182,17 +199,17 @@ select option {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 0 30px;
 }
 
 .cards .card {
-    width: 280px;
+    width: 260px;
     height: 280px;
     background-color: #ffffff;
     border-radius: 4px;
     overflow: hidden;
     color: var(--balck-color);
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+    margin-bottom: 40px;
 }
 
 .card .card_img {
@@ -211,58 +228,68 @@ select option {
 }
 
 .texts h1 {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 5px;
     font-weight: bolder;
+    font-weight: 800;
 }
 
 .card p {
-    margin-bottom: 5px;
+    font-size: 14px;
+    margin-bottom: 7px;
 }
 
 .card.active {
     display: none;
 }
 
-a {
-    text-decoration: none;
-}
+
 
 /* details page start  */
 
 .detail-container {
     width: 100%;
-    padding: 8rem 2rem;
+    padding: 6rem 60px;
     height: calc(100% - 80px);
     color: var(--balck-color);
+
 }
 
 .detail-container #back {
-    padding: 8px 12px;
-    font-size: 24px;
-    border: 2px solid #222E37;
+    margin-top: 2rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 25px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    box-shadow: 0 0px 7px 0px rgba(0, 0, 0, .2);
 }
 
 .detail {
     width: 100%;
-    padding: 5rem 2rem;
+    padding: 4rem 0rem;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 10px;
 }
 
 .detail .flag {
-    width: 50%;
+    width: 60%;
     max-width: 380px;
-    height: 280px;
+    height: 260px;
+
 }
 
 .flag img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .text {
@@ -275,7 +302,7 @@ a {
 
 .text p {
     margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .border {
@@ -286,17 +313,21 @@ a {
 .boredr_country a {
     margin-left: 5px;
     text-decoration: none;
-    padding: 1px 12px;
+    padding: 5px 25px;
+    border-radius: 5px;
+    font-weight: 400;
     color: #333;
-    border: 0.5px solid #222E37;
+    /* border: 0.5px solid #222E37; */
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
 }
 
 .sub_text {
     width: 100%;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 40px;
 }
 
 
@@ -304,6 +335,10 @@ a {
 /* mobile responsive  */
 
 @media (max-width:750px) {
+    header {
+        padding: 0 10px;
+        font-size: 12px;
+    }
 
     .cards {
         width: 100%;
@@ -322,9 +357,9 @@ a {
     }
 
     .detail {
-        flex-direction: column;
+        justify-content: center;
         gap: 40px;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .detail .flag {
@@ -337,10 +372,18 @@ a {
         width: 100%;
         padding: 0 20px;
     }
+}
 
-    .sub_text {
-        flex-direction: column;
+@media (max-width:320px) {
+    .detail {
+        width: 100%;
     }
-
-
+    .detail .flag {
+        width: 100%;
+        height: 130px;
+    }
+    .boredr_country a {
+       display:inherit;
+    }
+    
 }

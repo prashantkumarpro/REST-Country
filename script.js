@@ -9,6 +9,8 @@ const selectElem = document.querySelector('select');
 const filterElem = document.querySelectorAll('select option');
 let detailElem = document.querySelector('.detail');
 let detailContainer = document.querySelector('.detail-container')
+const bodyTheme = localStorage.getItem('class');
+const headerTheme = localStorage.getItem('headerDark');
 
 let datas = []
 
@@ -22,10 +24,8 @@ async function getData() {
         datas[0].map((item) => displayCard(item))
 
         if (cardContainer) {
-            const cards = document.querySelectorAll('a')
-                .forEach(card => {
-                    detailHandler(card)
-                })
+            document.querySelectorAll('a')
+                .forEach(card => detailHandler(card))
         }
 
         if (lodar) lodar.classList.remove('active');
@@ -93,7 +93,7 @@ if (selectElem) {
     })
 }
 
-
+// display card
 function displayCard(data) {
     let linkElem = document.createElement('a');
     linkElem.href = "singlePage.html"
@@ -139,7 +139,6 @@ function displayCard(data) {
     cardDiv.append(cardImg, textDiv)
     linkElem.append(cardDiv)
     if (cardContainer) cardContainer.append(linkElem)
-
 }
 
 // handel detail of each card 
@@ -155,8 +154,7 @@ function detailHandler(card) {
     })
 }
 
-const bodyTheme = localStorage.getItem('dark');
-const headerTheme = localStorage.getItem('headerDark');
+
 if (bodyTheme && headerTheme) {
     body.classList.add(bodyTheme);
     headerElem.classList.add(headerTheme)
@@ -165,24 +163,20 @@ if (bodyTheme && headerTheme) {
 // dark mode code 
 if (darkModeBtn) {
     darkModeBtn.addEventListener('click', function () {
-        lightModeBtn.classList.remove('active');
-        darkModeBtn.classList.add('active');
         headerElem.classList.add('active')
-        body.classList.add('theme')
-        localStorage.setItem('dark', 'theme')
+        body.classList.add('dark')
         localStorage.setItem('headerDark', 'active')
+        localStorage.setItem('class', 'dark')
     })
 }
 
 // light mode code
 if (lightModeBtn) {
     lightModeBtn.addEventListener('click', function () {
-        localStorage.removeItem('headerDark', 'active')
-        localStorage.removeItem('dark', 'theme')
-        darkModeBtn.classList.remove('active');
-        lightModeBtn.classList.add('active');
         headerElem.classList.remove('active')
-        body.classList.remove('theme')
+        body.classList.remove('dark')
+        localStorage.removeItem('headerDark', 'active')
+        localStorage.removeItem('class', 'theme')
     })
 }
 
