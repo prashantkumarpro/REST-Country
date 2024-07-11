@@ -13,8 +13,8 @@ async function getData() {
             const detail = data.filter(data => data.name.common.toLowerCase().includes(getDetail))
 
             detail.forEach(element => {
-                const { name, flags, population, region, subregion, capital, currencies, tld, languages } = element;
-                console.log(element)
+                const { name, flags, population, region, subregion, capital, currencies, tld, languages, borders } = element;
+                // console.log(element)
                 detailElem.innerHTML = ` 
                 
 
@@ -42,9 +42,7 @@ async function getData() {
                     <div class="boredr_text">Boredr Country:</div>
 
                     <div class="boredr_country">
-                        <a href="#">India</a>
-                        <a href="#">India</a>
-                        <a href="#">India</a>
+                        <a href="#">${borders ? borders.join(', ') : 'No borders'}</a>
                     </div>
                 </div>
             </div>

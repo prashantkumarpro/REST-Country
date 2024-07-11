@@ -21,6 +21,7 @@ async function getData() {
         const API = 'https://restcountries.com/v3.1/all';
         const data = await (await fetch(API)).json();
         datas.push(data)
+     
         datas[0].map((item) => displayCard(item))
 
         if (cardContainer) {
