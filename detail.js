@@ -39,17 +39,25 @@ async function getData() {
                     </div>
                 </div>
                 <div class="border">
-                    <div class="boredr_text">Boredr Country:</div>
+                    <div class="boredr_text"><b>Boredr Country:</b></div>
 
                     <div class="boredr_country">
-                        <a href="#">${borders ? borders.join(', ') : 'No borders'}</a>
                     </div>
                 </div>
             </div>
-            
-                `;
+            `
+
             });
 
+            const boredrCountry = document.querySelector('.boredr_country');
+            if (detail[0].borders) {
+                console.log(detail[0].borders)
+                detail[0].borders.forEach(border=>{
+                    boredrCountry.innerHTML += `<a>${border} </a>`
+                })
+            } else{
+                boredrCountry.innerHTML = 'No border'
+            }
 
 
         }
