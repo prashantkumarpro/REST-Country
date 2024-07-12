@@ -47,7 +47,8 @@ body.dark .boredr_country a {
 
 body.dark header,
 body.dark header a,
-body.dark header button {
+body.dark header button,
+body.dark .loading {
     color: var(--light-color);
 }
 
@@ -136,6 +137,7 @@ button {
     z-index: 2;
     font-size: 45px;
     font-weight: 800;
+    color: var(--balck-color);
 }
 
 .loading.active {
@@ -364,7 +366,7 @@ option {
     }
 
     .cards .card {
-        width: 360px;
+        width: 250px;
         height: 320px;
         border-radius: 4px;
         overflow: hidden;
@@ -424,7 +426,12 @@ option {
         padding: 5rem 14px;
     }
 
-
+    .cards .card {
+        width: 250px;
+        height: 280px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
     .detail-container {
         width: 100%;
         padding: 6rem 14px;
@@ -434,7 +441,7 @@ option {
     }
 
     .cards a {
-        width: 100%;
+        width: 90%;
         padding: 0;
     }
 
@@ -460,7 +467,7 @@ option {
 
     .card .card_img {
         width: 100%;
-        height: 190px;
+        height: 150px;
     }
 
 }
