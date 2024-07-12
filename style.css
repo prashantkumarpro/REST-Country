@@ -428,9 +428,6 @@ option {
 
     .cards .card {
         width: 250px;
-        height: 290px;
-        border-radius: 4px;
-        overflow: hidden;
     }
     .detail-container {
         width: 100%;
