@@ -409,7 +409,7 @@ option {
 
     .detail-container {
         width: 100%;
-        padding: 6rem 30px;
+        padding: 6rem 14px;
         height: calc(100% - 80px);
         color: var(--balck-color);
 
