@@ -97,7 +97,7 @@ if (selectElem) {
 // display card
 function displayCard(data) {
     let linkElem = document.createElement('a');
-    linkElem.href = "singlePage.html"
+    linkElem.href = "detail.html"
     // linkElem.target = '_blank'
 
     let cardDiv = document.createElement('div');
